@@ -3,6 +3,7 @@
     $('.scrollbar-macosx').scrollbar();
 
     var symptoms = [];
+    var audio = new Audio("mp3/meme.mp3");
 
     $(document).on('click', '.sidebar .box ul li label', function (e) {
 
@@ -19,7 +20,18 @@
             symptoms.pop(symptom);
         }
 
-        console.log(symptoms);
+        var qtdSymptom = $('.symptoms ul li').length;
+        var qtdSymptomActive = $('.symptoms ul li.active').length;
+
+        if (qtdSymptom == qtdSymptomActive) {
+            $('.body .meme').show();
+            audio.play();
+        } else {
+            $('.body .meme').hide();
+            audio.pause();
+        }
+
+        console.log(qtdSymptomActive, qtdSymptom);
     });
 
 })(jQuery);
