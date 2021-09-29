@@ -4,45 +4,44 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.row {
-    display: block;
-    width: 100%;
-    max-width: 1170px;
-    margin: 0 auto;
-}
-.row .inner {
-    display: block;
-    width: calc(100% + 30px);
-    margin-left: -15px;
+:root {
+    --w-sidebar: 55%;
 }
 
-/* section-symptoms */
-.section-symptoms {
+/* sidebar symptoms */
+.sidebar-symptoms {
+    position: fixed;
+    width: var(--w-sidebar);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+}
+/* box symptoms */
+.sidebar-symptoms .box {
     display: block;
     width: 100%;
-}
-.section-symptoms .box {
-    display: block;
-    width: calc(100% + 30px);
-    margin-left: -15px;
     font-size: 0;
-    text-align: center;
-}
-.section-symptoms .box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.section-symptoms .box ul li {
-    display: inline-block;
-    vertical-align: middle;
-    width: 25%;
-    font-size: initial;
     padding: 15px;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-.section-symptoms .box ul li label {
+.sidebar-symptoms .box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-symptoms .box ul li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    font-size: initial;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.sidebar-symptoms .box ul li label {
     display: block;
     width: 100%;
     background-color: #f5f3f3;
@@ -54,20 +53,52 @@ html, body {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-.section-symptoms .box ul li.active label {
+.sidebar-symptoms .box ul li.active label {
     color: #ffffff;
     background-color: rgb(71, 127, 211);
     box-shadow: 1px 2px 11px rgba(44, 44, 44, 0.4);
 }
-.section-symptoms .box ul li label input[type="checkbox"] {
+.sidebar-symptoms .box ul li label input[type="checkbox"] {
     display: none;
 }
-.section-symptoms .box ul li label img {
+.sidebar-symptoms .box ul li label img {
     display: block;
     width: 75px;
     height: auto;
     margin: 0 auto;
 }
-.section-symptoms .box ul li label span.text {
+.sidebar-symptoms .box ul li label span.text {
     display: block;
+}
+
+/* content */
+.content {
+    display: block;
+    width: calc(100% - var(--w-sidebar));
+    margin-left: 55%;
+    padding: 30px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.content .heading {
+    position: static;
+    position: -webkit-sticky;
+    width: 100%;
+    top: 0;
+    border-bottom: dotted 1px #555;
+    padding: 0 0 15px 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.content .heading strong,
+.content .heading small {
+    display: block;
+    color: #555;
+}
+.content .heading strong {
+    font-size: 1.2em;
+}
+.content .heading small {
+    text-align: justify;
+    margin-top: 10px;
 }
