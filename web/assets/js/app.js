@@ -1,8 +1,10 @@
 (function ($) {
 
+    $('.scrollbar-macosx').scrollbar();
+
     var symptoms = [];
 
-    $(document).on('click', '.sidebar-symptoms .box ul li label', function (e) {
+    $(document).on('click', '.sidebar .box ul li label', function (e) {
 
         e.preventDefault();
 

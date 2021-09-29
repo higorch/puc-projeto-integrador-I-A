@@ -8,30 +8,37 @@ html, body {
     --w-sidebar: 55%;
 }
 
-/* sidebar symptoms */
-.sidebar-symptoms {
+/* sidebar */
+.sidebar {
     position: fixed;
     width: var(--w-sidebar);
     top: 0;
     bottom: 0;
     left: 0;
-    overflow-y: auto;
+    border-right: solid 3px #f5f3f3;
 }
-/* box symptoms */
-.sidebar-symptoms .box {
+/* sidebar box */
+.sidebar .box {
     display: block;
     width: 100%;
     font-size: 0;
+}
+
+/* symptoms */
+.symptoms {
+    display: block;
+    height: 100vh;
+}
+.symptoms ul {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     padding: 15px;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-.sidebar-symptoms .box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.sidebar-symptoms .box ul li {
+.symptoms ul li {
     display: inline-block;
     vertical-align: middle;
     width: 50%;
@@ -41,11 +48,11 @@ html, body {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-.sidebar-symptoms .box ul li label {
+.symptoms ul li label {
     display: block;
     width: 100%;
     background-color: #f5f3f3;
-    color: #555;
+    color: #757575;
     font-weight: bold;
     cursor: pointer;
     border-radius: 7px;
@@ -53,21 +60,21 @@ html, body {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-.sidebar-symptoms .box ul li.active label {
+.symptoms ul li.active label {
     color: #ffffff;
     background-color: rgb(71, 127, 211);
     box-shadow: 1px 1px 13px rgba(77, 75, 75, 0.5);
 }
-.sidebar-symptoms .box ul li label input[type="checkbox"] {
+.symptoms ul li label input[type="checkbox"] {
     display: none;
 }
-.sidebar-symptoms .box ul li label img {
+.symptoms ul li label img {
     display: block;
     width: 75px;
     height: auto;
     margin: 0 auto;
 }
-.sidebar-symptoms .box ul li label span.text {
+.symptoms ul li label span.text {
     display: block;
 }
 
@@ -76,29 +83,91 @@ html, body {
     display: block;
     width: calc(100% - var(--w-sidebar));
     margin-left: 55%;
-    padding: 30px;
+    padding: 0 30px 30px 30px;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 .content .heading {
-    position: static;
+    position: sticky;
     position: -webkit-sticky;
     width: 100%;
     top: 0;
-    border-bottom: dotted 1px #555;
-    padding: 0 0 15px 0;
+    background-color: #ffffff;
+    border-bottom: solid 3px #f5f3f3;
+    padding: 30px 0 15px 0;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    z-index: 3;
 }
 .content .heading strong,
 .content .heading small {
     display: block;
-    color: #555;
+    color: #353535;
 }
 .content .heading strong {
-    font-size: 1.2em;
+    font-size: 1.25em;
 }
 .content .heading small {
     text-align: justify;
     margin-top: 10px;
+    line-height: 18px;
+}
+
+/* body */
+.body {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+}
+.body .section-title {
+    display: block;
+    margin-bottom: 15px;
+    font-size: .95em;
+    color: #353535;
+}
+
+/* progressbar */
+.progressbar {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 7px;
+}
+.progressbar span.bg,
+.progressbar span.bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+.progressbar span.bg {
+    left: 0;
+    right: 0;
+    background: linear-gradient(to left, #e5405e 0%, #ffdb3a 45%, #3fffa2 100%);
+    border-radius: 3px;
+    z-index: 1;
+}
+.progressbar span.bar {
+    right: 0;
+    background-color: #f5f3f3;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    z-index: 2;
+}
+
+/* results */
+.results,
+.results .box {
+    display: block;
+    width: 100%;
+}
+.results .box {
+    margin-bottom: 15px;
+}
+.results .box p {
+    display: block;
+    margin: 0 0 5px 0;
+    font-size: .9em;
+}
+.results .box p b {
+    color: #757575;
 }
