@@ -13,7 +13,13 @@ Ao clonar o projeto, execute a instalação do framework Flask 2.0, no exemplo a
 
 `
 $ mkdir myproject
+`
+
+`
 $ cd myproject
+`
+
+`
 $ python3 -m venv venv
 `
 
