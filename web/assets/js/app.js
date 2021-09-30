@@ -3,6 +3,7 @@
     var symptoms = [];
     var audio = new Audio("mp3/meme.mp3");
 
+    // obter sintomas
     $.get("/api/sintomas", function (data) {
 
         var output = "<ul>";
@@ -22,6 +23,7 @@
 
     });
 
+    // obter pre-resultado
     $(document).on('click', '.sidebar .box ul li label', function (e) {
 
         e.preventDefault();
@@ -29,12 +31,12 @@
         var el = $(this);
         var symptom = el.find('input[type="checkbox"]').data('symptom');
 
-        if (symptoms.length >= 0 && symptoms.indexOf(symptom) == -1) {
-            el.parent('li').addClass('active');
-            symptoms.push(symptom);
-        } else {
+        if (symptoms.includes(symptom) || el.parent('li').hasClass('active')) {
             el.parent('li').removeClass('active');
             symptoms.pop(symptom);
+        } else {
+            el.parent('li').addClass('active');
+            symptoms.push(symptom);
         }
 
         var qtdSymptom = $('.symptoms ul li').length;
