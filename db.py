@@ -1,4 +1,4 @@
-sintomas = {
+symptoms = {
     "febre": {
         "title": "Febre",
         "icon": "images/febre.png"
@@ -65,21 +65,21 @@ sintomas = {
     }
 }
 
-doencas = {
-    "covid19": {
+illnesses = [
+    ({
         "title": "COVID-19",
-        "sintomas": ['febre', 'tosse', 'cansaco', 'perda-paladar', 'perda-olfato', 'dores-peito', 'perda-fala', 'falta-ar']
-    },
-    "pneumonia": {
+        "symptoms": ['febre', 'tosse', 'cansaco', 'perda-paladar', 'perda-olfato', 'dores-peito', 'perda-fala', 'falta-ar']
+    }),
+    ({
         "title": "Pneumonia",
-        "sintomas": ['febre', 'tosse', 'dores-peito', 'suor', 'dor-costas', 'calafrios', 'pele-fria-umida', 'fadiga', 'falta-ar']
-    },
-    "bronquite": {
+        "symptoms": ['febre', 'tosse', 'dores-peito', 'suor', 'dor-costas', 'calafrios', 'pele-fria-umida', 'fadiga', 'falta-ar', 'cardiaco-acelerado']
+    }),
+    ({
         "title": "Bronquite",
-        "sintomas": ['febre', 'chiado-peito', 'tosse', 'fadiga', 'falta-ar']
-    },
-    "asma": {
+        "symptoms": ['febre', 'chiado-peito', 'tosse', 'fadiga', 'falta-ar']
+    }),
+    ({
         "title": "Asma",
-        "sintomas": ['tosse', 'ansiedade', 'chiado-peito', 'falta-ar']
-    }
-}
+        "symptoms": ['tosse', 'ansiedade', 'chiado-peito', 'falta-ar']
+    }),
+]

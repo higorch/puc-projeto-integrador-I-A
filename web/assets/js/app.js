@@ -61,7 +61,29 @@
             url: "/api/pre-diagnostico",
             contentType: 'application/x-www-form-urlencoded',
             success: function (data) {
-                console.log(data.response)
+
+                var output = '';
+
+                $.each(data.response, function (index, value) {
+                    output += "<div class='box'>";
+                    output += "<p>Você tem <b>" + value.probability + "%</b> dos sintomas de <b>" + value.title + "</b></p>";
+                    output += "<div class='progressbar'>";
+                    output += "<span class='bg'></span>";
+                    output += "<span class='bar' style='width: calc(100% - " + value.probability + "%);'></span>";
+                    output += "</div>";
+                    output += "</div>";
+                });
+
+                if (data.response.length > 0) {
+                    $('.body .results').html(output).show();
+                    $('.body .section-title').show();
+                    $('.body .alert').hide();
+                } else {
+                    $('.body .results').html('').hide();
+                    $('.body .section-title').hide();
+                    $('.body .alert').show();
+                }
+
             },
         });
 

@@ -13,9 +13,15 @@ def index():
     return render_template("index.html")
 
 
+@app.route('/<string:pagina>')
+def error404(pagina):
+    msg = f'Página ({pagina}) não existe!'
+    return render_template('404.html', msg=msg)
+
+
 @app.route('/api/sintomas', methods=['GET'])
 def api_sintomas():
-    return make_response(db.sintomas, 200)
+    return make_response(db.symptoms, 200)
 
 
 @app.route('/api/pre-diagnostico', methods=['POST'])
@@ -23,17 +29,7 @@ def api_pre_diagnostico():
     data = request.get_json(force=True)
     symptoms = data['symptoms']
 
-    response = {
-        "diagnosis": helpers.proccessDiagnosis(symptoms)
-    }
-
-    return make_response(jsonify({"response": response}), 200)
-
-
-@app.route('/<string:pagina>')
-def error404(pagina):
-    msg = f'Página ({pagina}) não existe!'
-    return render_template('404.html', msg=msg)
+    return make_response(jsonify({"response": helpers.proccessDiagnosis(symptoms)}), 200)
 
 
 app.run()
