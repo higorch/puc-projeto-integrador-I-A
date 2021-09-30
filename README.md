@@ -31,6 +31,14 @@ $ . venv/bin/activate
 $ pip install Flask
 `
 
+`
+$ export FLASK_ENV=development
+`
+
+`
+$ flask run
+`
+
 Documentação oficial para configurar o ambiente [Flask installation](https://flask.palletsprojects.com/en/2.0.x/installation/).
 
 ##### Atenção
