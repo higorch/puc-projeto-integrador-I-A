@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, make_response
+from flask import Flask, render_template, request, make_response, jsonify
 import db
+import helpers
 
 app = Flask(__name__,
             static_url_path='',
@@ -15,6 +16,18 @@ def index():
 @app.route('/api/sintomas', methods=['GET'])
 def api_sintomas():
     return make_response(db.sintomas, 200)
+
+
+@app.route('/api/pre-diagnostico', methods=['POST'])
+def api_pre_diagnostico():
+    data = request.get_json(force=True)
+    symptoms = data['symptoms']
+
+    response = {
+        "diagnosis": helpers.proccessDiagnosis(symptoms)
+    }
+
+    return make_response(jsonify({"response": response}), 200)
 
 
 @app.route('/<string:pagina>')

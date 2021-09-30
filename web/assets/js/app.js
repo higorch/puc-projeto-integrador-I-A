@@ -53,7 +53,18 @@
             audio.pause();
         }
 
-        console.log(symptoms);
+        $.ajax({
+            data: JSON.stringify({
+                symptoms: symptoms
+            }),
+            type: "POST",
+            url: "/api/pre-diagnostico",
+            contentType: 'application/x-www-form-urlencoded',
+            success: function (data) {
+                console.log(data.response)
+            },
+        });
+
     });
 
 })(jQuery);
