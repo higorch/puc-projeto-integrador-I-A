@@ -53,6 +53,7 @@
             audio.pause();
         }
 
+        // gerar o diagnostico
         $.ajax({
             data: JSON.stringify({
                 symptoms: symptoms
@@ -61,6 +62,10 @@
             url: "/api/pre-diagnostico",
             contentType: 'application/x-www-form-urlencoded',
             success: function (data) {
+
+                if (data.response.length == 0) {
+                    return;
+                }
 
                 var output = '';
 

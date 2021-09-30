@@ -76,7 +76,7 @@ illnesses = [
     }),
     ({
         "title": "Bronquite",
-        "symptoms": ['febre', 'chiado-peito', 'tosse', 'fadiga', 'falta-ar']
+        "symptoms": ['febre', 'tosse', 'chiado-peito', 'fadiga', 'falta-ar']
     }),
     ({
         "title": "Asma",

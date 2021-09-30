@@ -10,6 +10,7 @@ def proccessDiagnosis(userSymptoms):
         title = illness['title']
         symptoms = illness['symptoms']
 
+        # verificar sintomas da doenca com os do usuario, e retornar somente sintomas que coincidem
         matches = list(set(symptoms) & set(userSymptoms))
 
         userSymptomsCount = len(matches)
@@ -22,6 +23,7 @@ def proccessDiagnosis(userSymptoms):
             results.append({
                 "title": title,
                 "probability": round(probability, 2),
+                "symptoms": matches,
             })
 
     return results
