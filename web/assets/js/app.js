@@ -23,7 +23,7 @@
 
     });
 
-    // obter pre-resultado
+    // enviar sintomas e obter pre-resultado
     $(document).on('click', '.sidebar .box ul li label', function (e) {
 
         e.preventDefault();
@@ -31,12 +31,15 @@
         var el = $(this);
         var symptom = el.find('input[type="checkbox"]').data('symptom');
 
-        if (symptoms.includes(symptom) || el.parent('li').hasClass('active')) {
+        if (symptoms.includes(symptom)) {
+            var index = symptoms.indexOf(symptom);
+            if (index > -1) {
+                symptoms.splice(index, 1);
+            }
             el.parent('li').removeClass('active');
-            symptoms.pop(symptom);
         } else {
-            el.parent('li').addClass('active');
             symptoms.push(symptom);
+            el.parent('li').addClass('active');
         }
 
         var qtdSymptom = $('.symptoms ul li').length;
