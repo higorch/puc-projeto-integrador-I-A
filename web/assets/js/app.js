@@ -1,9 +1,26 @@
 (function ($) {
 
-    $('.scrollbar-macosx').scrollbar();
-
     var symptoms = [];
     var audio = new Audio("mp3/meme.mp3");
+
+    $.get("/api/sintomas", function (data) {
+
+        var output = "<ul>";
+        $.each(data, function (index, value) {
+            output += "<li>";
+            output += "<label>";
+            output += "<img src='" + value.icon + "' alt='" + value.title + "'>";
+            output += "<span class='text'>" + value.title + "</span>";
+            output += "<input type='checkbox' data-symptom='" + index + "'>";
+            output += "</label>";
+            output += "</li>";
+        });
+        output += "</ul>";
+
+        $('.sidebar .box .symptoms').html(output);
+        $('.scrollbar-macosx').scrollbar();
+
+    });
 
     $(document).on('click', '.sidebar .box ul li label', function (e) {
 
@@ -31,7 +48,7 @@
             audio.pause();
         }
 
-        console.log(qtdSymptomActive, qtdSymptom);
+        console.log(symptoms);
     });
 
 })(jQuery);

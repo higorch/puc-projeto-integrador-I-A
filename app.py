@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response
+import db
 
 app = Flask(__name__,
             static_url_path='',
@@ -9,6 +10,11 @@ app = Flask(__name__,
 @app.route('/')
 def index():
     return render_template("index.html")
+
+
+@app.route('/api/sintomas', methods=['GET'])
+def api_sintomas():
+    return make_response(db.sintomas, 200)
 
 
 @app.route('/<string:pagina>')
